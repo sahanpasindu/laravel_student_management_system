@@ -66,14 +66,19 @@
                         <li>
                             <div class="main-header-profile bg-primary menu-header-content text-fixed-white">
                                 <div class="my-auto">
-                                    <h6 class="mb-0 lh-1 text-fixed-white">Petey Cruiser</h6><span class="fs-11 op-7 lh-1">Premium Member</span>
+                                    <h6 class="mb-0 lh-1 text-fixed-white">{{ Auth::user()->name }}</h6><span class="fs-11 op-7 lh-1">{{ auth()->user()->type }}</span>
                                 </div>
                             </div>
                         </li>
                         <li><a class="dropdown-item d-flex" href=""><i class="bx bx-user-circle fs-18 me-2 op-7"></i>Profile</a></li>
                         <li><a class="dropdown-item d-flex" href=""><i class="bx bx-cog fs-18 me-2 op-7"></i>Edit Profile </a></li>
                         <li><a class="dropdown-item d-flex border-block-end" href=""><i class="bx bx-slider-alt fs-18 me-2 op-7"></i>Account Settings</a></li>
-                        <li><a class="dropdown-item d-flex" href="signin.html"><i class="bx bx-log-out fs-18 me-2 op-7"></i>Sign Out</a></li>
+                        <li>
+                            <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                            <a class="dropdown-item d-flex" href="{{ route('admin.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="bx bx-log-out fs-18 me-2 op-7"></i>{{ __('Logout') }}</a></li>
                     </ul>
                 </div>
                 <!-- End::header-element -->

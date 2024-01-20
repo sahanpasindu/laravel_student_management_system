@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Student Management System</title>
+    <title>Student Management System - Admin</title>
     <meta name="Description" content="">
     <meta name="Author" content="">
 	<meta name="keywords" content="">
@@ -48,24 +48,24 @@
 
 <body>
     <!-- Start Switcher -->
-    @include('switcher')
+    @include('admin.layouts.switcher')
     <!-- End Switcher -->
 
     <!-- Loader -->
-    @include('loader')
+    @include('admin.layouts.loader')
     <!-- Loader -->
 
     <div class="page">
         <!-- app-header -->
-        @include('header')
+        @include('admin.layouts.header')
         <!-- /app-header -->
 
         <!-- Start::Off-canvas sidebar-->
-        @include('offcanvas')
+        @include('admin.layouts.offcanvas')
         <!-- End::Off-canvas sidebar-->
 
         <!-- Start::app-sidebar -->
-        @include('sidebar')
+        @include('admin.layouts.sidebar')
         <!-- End::app-sidebar -->
 
         <!-- Start::app-content -->
@@ -73,7 +73,7 @@
         <!-- End::app-content -->
 
         <!-- Footer Start -->
-        @include('footer')
+        @include('admin.layouts.footer')
         <!-- Footer End -->
     </div>
 

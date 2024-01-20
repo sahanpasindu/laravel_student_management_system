@@ -2,7 +2,6 @@
 <html lang="en" dir="ltr" data-nav-layout="vertical" data-vertical-style="overlay" data-theme-mode="light" data-header-styles="light" data-menu-styles="light" data-toggled="close">
 
 <head>
-
     <!-- Meta Data -->
     <meta charset="UTF-8">
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
@@ -56,19 +55,46 @@
                                     </div>
                                     <div class="card-sigin">
                                         <div class="main-signup-header">
-                                            <h3>Welcome back!</h3>
-                                            <h6 class="fw-medium mb-4 fs-17">Please sign in to continue.</h6>
-                                            <form>
+                                            <h3>{{ __('Welcome back!') }}</h3>
+                                            <h6 class="fw-medium mb-4 fs-17">{{ __('Please sign in to continue.') }}</h6>
+                                            <form action="{{ route('login') }}" method="POST">
+                                                @csrf
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label">Email</label> <input class="form-control"
-                                                        placeholder="Enter your email" type="text">
+                                                    <label class="form-label">{{ __('Email') }}</label>
+                                                    <input class="form-control  @error('email') is-invalid @enderror" name="email"
+                                                        placeholder="{{ __('Enter your email') }}" type="text" value="admin1@example.com" required autocomplete="email" autofocus>
+                                                    @error('email')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                 </div>
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label">Password</label> <input class="form-control"
-                                                        placeholder="Enter your password" type="password">
+                                                    <label class="form-label">{{ __('Password') }}</label>
+                                                    <input class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="{{ __('Enter your password') }}" type="password" value="password">
+                                                    @error('password')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                 </div>
-                                                <a href="index.html"  class="btn btn-primary btn-block w-100">Sign In</a>
+                                                <div class="row mb-3">
+                                                    <div class="col-md-6">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                                            <label class="form-check-label" for="remember">
+                                                                {{ __('Remember Me') }}
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button type="submit"  class="btn btn-primary btn-block w-100">{{ __('Sign in') }}</button>
                                             </form>
+                                            <div class="main-signin-footer mt-5">
+                                                @if (Route::has('password.request'))
+                                                    <p class="mb-1"><a href="{{ route('password.request') }}">{{ __('Forgot password?') }}</a></p>
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
