@@ -44,6 +44,9 @@
 
     <!-- Jsvector Maps -->
     <link href="{{ asset('libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet" >
+
+    <!-- Datatable Css -->
+    @yield('datatable-css')
 </head>
 
 <body>
@@ -84,6 +87,9 @@
     <div id="responsive-overlay"></div>
     <!-- Scroll To Top -->
 
+    <!-- Jquery Cdn -->
+    @yield('jquery-js')
+
     <!-- Popper JS -->
     <script src="{{ asset('libs/@popperjs/core/umd/popper.min.js') }}"></script>
 
@@ -123,6 +129,10 @@
 
     <!-- Custom-Switcher JS -->
     <script src="{{ asset('js/custom-switcher.min.js') }}"></script>
+
+    <!-- Datatables Cdn -->
+    @yield('datatable-js')
+
     <!-- Custom JS -->
     <script src="{{ asset('js/custom.js') }}"></script>
 </body>
